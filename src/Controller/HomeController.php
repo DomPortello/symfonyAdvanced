@@ -40,9 +40,10 @@ class HomeController extends AbstractController
 
         $qb = $this->userRepository->getQbAll();
 
-//        if ($form->isSubmitted() && $form->isValid()){
-//            $qb->where('u.email', 'LIKE');
-//        }
+        if ($form->isSubmitted() && $form->isValid()) {
+            $data = $form->get('email')->getData();
+            dump($data);
+        }
 
         $pagination = $this->paginator->paginate($qb, $request->query->getInt('page', 1), 3);
 

@@ -4,11 +4,6 @@
 
 {% block body %}
 
-    <form action="{{ path('home') }}" method="get">
-        <input type="search" placeholder="Search" aria-label="Search">
-        <button type="submit">Search</button>
-    </form>
-
     {% if app.user %}
         <p>je suis connecté</p>
     {% else %}
@@ -17,8 +12,8 @@
 
     {{ form_start(form) }}
     {{ form_row(form.email) }}
-
-    {{ form_end() }}
+        <button type="submit">Rechercher</button>
+    {{ form_end(form) }}
 
 
     {% for user in pagination %}
